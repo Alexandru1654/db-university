@@ -17,3 +17,16 @@ CREATE TABLE Corsi (
     FOREIGN KEY (corso_di_laurea_id) REFERENCES CorsiDiLaurea (id)
 );
 
+CREATE TABLE Insegnanti (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Corso_Insegnante (
+    corso_id INT,
+    insegnante_id INT,
+    PRIMARY KEY (corso_id, insegnante_id),
+    FOREIGN KEY (corso_id) REFERENCES Corsi (id),
+    FOREIGN KEY (insegnante_id) REFERENCES Insegnanti (id)
+);
+
